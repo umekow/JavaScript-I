@@ -118,12 +118,13 @@ let inventory = [
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
   let carYears = [];
-  const getYears = function() {
+  const getYears = () => {
     for (i = 0; i < inventory.length; i++){
       carYears.push(inventory[i].car_year); 
     }
     return carYears;
   }
+
   //invoking getYears here for later use of carYears array
   getYears(); 
   console.log(carYears);
@@ -141,12 +142,12 @@ let inventory = [
         oldCars.push(currentCarYear); 
       }
     }
-    return oldCars; 
+    return  "There are " + oldCars.length + " cars that were made before the year " + year; 
 
   }
 
-  getOlderCars(2000); 
-  console.log(oldCars);
+ 
+  console.log( getOlderCars(2000));
 
 // ==== Challenge 6 ====
 // A buyer is interested in seeing only BMW and Audi cars within the inventory. Return an array that only contains BMW and Audi cars.  Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
@@ -170,16 +171,29 @@ let inventory = [
 
 // ==== STRETCH ====
 
+console.clear(); 
 
-  //filter used for challenge 1
+//filter used for challenge 1
 
   const car33 = inventory.filter( car => car.id === 33); 
   console.log("Car " + car33[0].id +  " is a " + car33[0].car_year + " " +  car33[0].car_make + " " + car33[0].car_model);
 
-  //filter used for challenge 5
+//filter used for challenge 2
+
+//filter used for challenge 3
+
+//map used for challenge 4
+
+   const newYears = inventory.map(car => car.car_year); 
+   console.log(newYears); 
+
+//filter used for challenge 5
 
   const newGetOlderCars = inventory.filter(car => car.car_year < 2000);
+  console.log("There are " + newGetOlderCars.length + " cars that were made before the year 2000."); 
 
   //filter used for challenge 6
 
   const newBMWAndAudi = inventory.filter(car => car.car_make === "Audi" || car.car_make === "BMW");
+
+  console.log(JSON.stringify(newBMWAndAudi));
